@@ -13,14 +13,16 @@ export default function Home() {
       setCategories(categories)
     });
   }, []);
+  
 
   return (
     <div className="content">
       <ul>
         {categories.map((category) => {
           return (
-            <li className="category-link" key={category.category_name}>
+            <li className='category-link' key={category.category_name}>
               <Link to={`${category.category_name}`}>
+                <img className ='image-icon-cat'src={`https://www.emergerecycling.co.uk/wp-content/uploads/2020/08/shutterstock_11855155842-2.jpg`} />
                 {category.category_name}
               </Link>
             </li>

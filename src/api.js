@@ -21,9 +21,24 @@ return marketPlaceAPI.get(`/items`, {params: {category_name: category_name} }).t
 }
 
 export function postItems(item) {
-  console.log(item,'<---item');
   return marketPlaceAPI.post(`/items`, item).then((res) => {
-    console.log(res, '<--- in js');
     return res
+  })
+}
+
+export function getUsers() {
+  return marketPlaceAPI.get(`/users`).then((res) => {
+    const { users } = res.data
+    return users;
+  });
+}
+
+export const patchUser = (username) => {
+  const patchBody = {
+    "kudos_inc": 1
+  }
+  return marketPlaceAPI.patch(`/users/${username}`, patchBody).then((res) => {
+    console.log(res);
+    return res.data.user.kudos
   })
 }

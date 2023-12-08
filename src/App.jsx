@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import "./App.css";
 import Header from "./Header";
 import { Routes, Route } from "react-router-dom";
@@ -8,11 +8,14 @@ import { Link } from "react-router-dom";
 import SellItem from "./SellItem";
 import SuccessSoldItem from "./SuccessSoldItem";
 import Basket from "./Basket";
+import UsersList from "./UsersList";
+import { UserProvider } from "./UserContext";
 function App() {
   const [basket, setBasket] = useState([])
 
   return (
-    <>
+    <UserProvider>
+    
       <Header basket={basket} />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,11 +26,12 @@ function App() {
           path="/basket"
           element={<Basket setBasket={setBasket} basket={basket} />}
         />
+        <Route path="/users" element={<UsersList/>} />
       </Routes>
       <button className="sell-button">
         <Link to="/sell-item">Sell an Item!</Link>
       </button>
-    </>
+    </UserProvider>
   );
 }
 
