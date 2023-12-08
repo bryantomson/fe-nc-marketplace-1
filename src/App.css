@@ -17,6 +17,17 @@
   margin: 3%;
   background-color: rgb(160, 216, 164);
 }
+.sell-button {
+  padding: 3%;
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 3%;
+  background-color: rgb(160, 216, 164);
+  position: sticky;
+  bottom: 1rem;
+  align-self: flex-end;
+}
 
 .items-table-container {
 display: flex;

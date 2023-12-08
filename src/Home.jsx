@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getCategories } from "./api";
 import { useEffect, useState } from "react";
+import SellItem from "./SellItem";
 
 
 

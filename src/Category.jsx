@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItems } from "./api";
-
-export default function Category() {
+import AddToBasket from "./AddToBasket";
+export default function Category({setBasket}) {
   const [itemsInCat, setItemsInCat] = useState([]);
   const { category } = useParams();
 
@@ -19,30 +19,36 @@ export default function Category() {
     
     
           <table className="items-table">
-            <tr>
+            <thead>
+              <tr>
               <th>Image</th>
               <th>Title</th>
               <th>Description</th>
               <th>Price</th>
-              
-            </tr>
+              <th>Add to Basket</th>
+              </tr>
+            </thead>
+            <tbody>
     
             {itemsInCat.map((item) => {
-              console.log(item);
               return (
                 <tr className="list-item" key={item.item_id}>
                   <td><img className="item-thumbnail" src={item.img_url} /></td>
                   <td>
                       <p>{item.item_name}</p>
                   </td>
-<td>{item.description}</td>
+                  <td>{item.description}</td>
 
                   <td>
                       <p>{`£ ${item.price}`}</p>
                   </td>
+                  <td>
+                    <AddToBasket setBasket = {setBasket}/>
+                  </td>
                 </tr>
               );
             })}
+            </tbody>
           </table>
 </div>
     </div>

@@ -19,3 +19,11 @@ return marketPlaceAPI.get(`/items`, {params: {category_name: category_name} }).t
 });
 
 }
+
+export function postItems(item) {
+  console.log(item,'<---item');
+  return marketPlaceAPI.post(`/items`, item).then((res) => {
+    console.log(res, '<--- in js');
+    return res
+  })
+}
