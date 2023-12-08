@@ -5,7 +5,13 @@
   text-align: center;
 }
 
+#view-basket-text {
+  font-size: 1.3rem;
+}
+
 .header {
+  display: flex;
+  justify-content: space-around;
   border: 2px solid black;
 }
 
@@ -44,4 +50,9 @@ justify-content: center;
 .item-thumbnail {
   float: left;
   max-width: 10rem;
+}
+
+.basket-icon {
+  font-size: 3rem;
+  text-decoration: none;
 }
